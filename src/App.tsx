@@ -1,7 +1,10 @@
-import "./App.css";
+import "@/assets/styles/global.css";
+import { Sidebar } from "@/components/Sidebar/Sidebar.tsx";
 
-function App() {
-  return <></>;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
+};
