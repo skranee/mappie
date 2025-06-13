@@ -5,6 +5,8 @@
     align-items: center;
     border-radius: 6px;
     transition: 0.25s;
+    padding: 10px 22px;
+    gap: 12px;
 }
 
 .button:hover {
@@ -32,11 +34,13 @@
 .button--blue {
     background: var(--color-blue);
     border: none;
+    color: var(--color-white);
 }
 
 .button--white {
     background: var(--color-white);
     border: solid 3px var(--color-gray);
+    color: var(--color-gray-light);
 }
 
 .button--red {
@@ -48,13 +52,16 @@
 }
 
 .button--square--lg {
+    padding: 0;
     width: var(--button-height-lg);
 }
 
 .button--square--md {
+    padding: 0;
     width: var(--button-height-md);
 }
 
 .button--square--sm {
+    padding: 0;
     width: var(--button-height-sm);
 }

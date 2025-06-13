@@ -1,5 +1,7 @@
 :root {
     --sidebar-width: 110px;
+    --panel-width: 400px;
+    --panel-landmark-width: 490px;
 
     --button-height-sm: 40px;
     --button-height-md: 50px;
@@ -20,5 +22,6 @@
     --color-blue: #5E7BC7;
     --color-gray: #C4C4C4;
     --color-gray-light: #808080;
+    --color-mine-shaft: #373737;
     --color-red: #C75E5E;
 }
