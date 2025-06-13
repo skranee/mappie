@@ -1,0 +1,42 @@
+.details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 20px 35px 20px;
+    width: 100%;
+    border: solid 3px var(--color-gray);
+    border-radius: 10px;
+}
+
+.details__image {
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.details__badges {
+
+}
+
+.details__title {
+    font-size: 24px;
+    font-weight: var(--font-weight-extra-bold);
+    color: var(--color-mine-shaft);
+    margin-bottom: 15px;
+}
+
+.details__description {
+    color: var(--color-mine-shaft);
+    margin-bottom: 50px;
+}
+
+.details__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

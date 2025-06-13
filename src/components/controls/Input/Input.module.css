@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid 3px var(--color-gray);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.container--search {
+    min-height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 20px;
+}
+
+.container--number {
+    min-height: 50px;
+    width: 100px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+
+}
+
+.input--search {
+    color: var(--color-mine-shaft);
+}
+
+.input--number {
+    color: var(--color-mine-shaft);
+    text-align: center;
+    width: 100%;
+}

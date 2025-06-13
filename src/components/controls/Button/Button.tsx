@@ -1,8 +1,9 @@
 import styles from './Button.module.css';
 import type { ButtonHTMLAttributes } from 'react';
+import type { ButtonColors } from '@/types/controls.ts';
 
 interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
-  version: 'blue' | 'white' | 'red' | 'gray-light';
+  version: ButtonColors;
   square: boolean;
   size: 'sm' | 'md' | 'lg';
 }
