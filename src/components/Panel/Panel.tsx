@@ -3,7 +3,7 @@ import { useAppSelector } from '@/hooks/useAppSelector.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Input } from '@/components/controls/Input/Input.tsx';
 import { Card } from '@/components/Card/Card.tsx';
-import { setMode } from '@/store/slices/PanelSlice.ts';
+import { setIsOpen, setMode } from '@/store/slices/PanelSlice.ts';
 import { Details } from '@/components/Details/Details.tsx';
 import { SearchPanel } from '@/components/SearchPanel/SearchPanel.tsx';
 import { useState } from 'react';
@@ -57,6 +57,7 @@ const fakeData = [
 
 export const Panel = () => {
   const mode = useAppSelector(state => state.panel.mode);
+  const isOpen = useAppSelector(state => state.panel.isOpen);
 
   const dispatch = useAppDispatch();
 
@@ -76,8 +77,18 @@ export const Panel = () => {
     dispatch(setMode('saved'));
   };
 
+  const closePanel = () => {
+    dispatch(setIsOpen(false));
+  };
+
   return (
-    <div className={`${styles.panel} ${mode === 'landmark' ? styles.panel__landmark : ''}`}>
+    <div
+      className={`
+        ${styles.panel} 
+        ${mode === 'landmark' ? styles.panel__landmark : ''} 
+        ${isOpen ? '' : styles[`panel--closed`]}
+      `}
+    >
       <Input version={'search'} placeholder='Место, адрес..' />
       <h3 className={styles.panel__title}>
         {mode === 'landmark' && (
@@ -99,6 +110,12 @@ export const Panel = () => {
           ))}
         </ul>
       )}
+      <button
+        className={`${styles.panel__closeBtn} ${!isOpen && styles['panel__closeBtn--hidden']}`}
+        onClick={closePanel}
+      >
+        <img src={ArrowLeft} alt='close-arrow-left' />
+      </button>
       {mode === 'search' && <SearchPanel categories={MAP_OBJECTS} />}
       {mode === 'landmark' && <Details title={title} description={description} image={image} />}
     </div>

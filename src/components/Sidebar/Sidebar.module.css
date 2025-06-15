@@ -1,6 +1,6 @@
 .sidebar {
     position: relative;
-    z-index: 10;
+    z-index: 30;
     width: var(--sidebar-width);
     height: 100vh;
     background: var(--color-white);

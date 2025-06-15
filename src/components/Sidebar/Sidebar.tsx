@@ -6,7 +6,7 @@ import BookmarkRed from '@/assets/icons/bookmark-red.svg';
 import BookmarkWhite from '@/assets/icons/bookmark-white.svg';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { useAppSelector } from '@/hooks/useAppSelector.ts';
-import { setMode } from '@/store/slices/PanelSlice.ts';
+import { setIsOpen, setMode } from '@/store/slices/PanelSlice.ts';
 import { useEffect, useState } from 'react';
 import type { ButtonColors } from '@/types/controls.ts';
 
@@ -35,10 +35,12 @@ export const Sidebar = () => {
   }, [mode]);
 
   const setModeSearch = () => {
+    dispatch(setIsOpen(true));
     dispatch(setMode('search'));
   };
 
   const setModeSaved = () => {
+    dispatch(setIsOpen(true));
     dispatch(setMode('saved'));
   };
 
