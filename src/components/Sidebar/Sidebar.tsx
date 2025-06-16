@@ -71,8 +71,8 @@ export const Sidebar = () => {
             <img src={bookmarkColor === 'white' ? BookmarkWhite : BookmarkRed} alt='bookmark' />
           </Button>
         </div>
-        {email && avatar ? (
-          <img src={avatar} className={styles.sidebar__avatar} alt='avatar' />
+        {email ? (
+          <img src={avatar || '/logo.svg'} className={styles.sidebar__avatar} alt='avatar' />
         ) : (
           <Button version='gray-light' square={true} size='md' onClick={goToAuth}>
             <img src={Exit} alt='exit' />
