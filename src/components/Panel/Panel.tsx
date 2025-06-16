@@ -6,9 +6,15 @@ import { Card } from '@/components/Card/Card.tsx';
 import { setIsOpen, setMode } from '@/store/slices/PanelSlice.ts';
 import { Details } from '@/components/Details/Details.tsx';
 import { SearchPanel } from '@/components/SearchPanel/SearchPanel.tsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ArrowLeft from '@/assets/icons/arrow-left.svg';
 import { MAP_OBJECTS } from '@/constants/MapObjects.ts';
+
+type dataType = {
+  title: string;
+  description: string;
+  image: string;
+};
 
 const fakeData = [
   {
@@ -64,6 +70,18 @@ export const Panel = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredPlaces, setFilteredPlaces] = useState<dataType[]>([]);
+
+  useEffect(() => {
+    if (searchValue) {
+      setFilteredPlaces(
+        fakeData.filter(place => place.title.toLowerCase().includes(searchValue.toLowerCase()))
+      );
+    } else {
+      setFilteredPlaces(fakeData);
+    }
+  }, [searchValue]);
 
   const goToDetails = (title: string, description: string, image: string) => {
     setTitle(title);
@@ -89,7 +107,12 @@ export const Panel = () => {
         ${isOpen ? '' : styles[`panel--closed`]}
       `}
     >
-      <Input version={'search'} placeholder='Место, адрес..' />
+      <Input
+        value={searchValue}
+        version={'search'}
+        placeholder='Место, адрес..'
+        onChange={e => setSearchValue(e.target.value)}
+      />
       <h3 className={styles.panel__title}>
         {mode === 'landmark' && (
           <img src={ArrowLeft} className={styles.panel__back} alt='arrow-left' onClick={goBack} />
@@ -98,7 +121,7 @@ export const Panel = () => {
       </h3>
       {mode === 'saved' && (
         <ul className={styles.panel__cards}>
-          {fakeData.map((card, index) => (
+          {filteredPlaces.map((card, index) => (
             <li key={`card-${index}`}>
               <Card
                 title={card.title}
