@@ -7,6 +7,7 @@
     transition: 0.25s;
     padding: 10px 22px;
     gap: 12px;
+    color: var(--color-white);
 }
 
 .button:hover {
@@ -34,7 +35,6 @@
 .button--blue {
     background: var(--color-blue);
     border: none;
-    color: var(--color-white);
 }
 
 .button--white {
@@ -47,7 +47,7 @@
     background: var(--color-red);
 }
 
-.button--gray {
+.button--gray-light {
     background: var(--color-gray-light);
 }
 

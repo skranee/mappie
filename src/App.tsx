@@ -1,12 +1,15 @@
 import '@/assets/styles/global.css';
-import { Sidebar } from '@/components/Sidebar/Sidebar.tsx';
-import { Panel } from '@/components/Panel/Panel.tsx';
+import { ROUTES } from '@/constants/Routes.tsx';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
     <>
-      <Sidebar />
-      <Panel />
+      <Routes>
+        {ROUTES.map(route => (
+          <Route key={route.path} path={route.path} element={route.page} />
+        ))}
+      </Routes>
     </>
   );
 };

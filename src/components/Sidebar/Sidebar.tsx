@@ -9,11 +9,17 @@ import { useAppSelector } from '@/hooks/useAppSelector.ts';
 import { setIsOpen, setMode } from '@/store/slices/PanelSlice.ts';
 import { useEffect, useState } from 'react';
 import type { ButtonColors } from '@/types/controls.ts';
+import { useNavigate } from 'react-router-dom';
+import Exit from '@/assets/icons/exit.svg';
 
 export const Sidebar = () => {
   const mode = useAppSelector(state => state.panel.mode);
+  const isOpen = useAppSelector(state => state.panel.isOpen);
+  const email = useAppSelector(state => state.user.email);
+  const avatar = useAppSelector(state => state.user.avatar);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [searchColor, setSearchColor] = useState<ButtonColors>('white');
   const [savedColor, setSavedColor] = useState<ButtonColors>('white');
@@ -21,18 +27,23 @@ export const Sidebar = () => {
   const [bookmarkColor, setBookmarkColor] = useState<ButtonColors>('red');
 
   useEffect(() => {
-    if (mode === 'search') {
+    if (mode === 'search' && isOpen) {
       setSearchColor('white');
       setSavedColor('red');
       setLensColor('blue');
       setBookmarkColor('white');
-    } else {
+    } else if ((mode === 'landmark' || mode === 'saved') && isOpen) {
       setSearchColor('blue');
       setSavedColor('white');
       setLensColor('white');
       setBookmarkColor('red');
+    } else {
+      setSearchColor('blue');
+      setSavedColor('red');
+      setLensColor('white');
+      setBookmarkColor('white');
     }
-  }, [mode]);
+  }, [mode, isOpen]);
 
   const setModeSearch = () => {
     dispatch(setIsOpen(true));
@@ -42,6 +53,10 @@ export const Sidebar = () => {
   const setModeSaved = () => {
     dispatch(setIsOpen(true));
     dispatch(setMode('saved'));
+  };
+
+  const goToAuth = () => {
+    navigate('/auth');
   };
 
   return (
@@ -56,7 +71,13 @@ export const Sidebar = () => {
             <img src={bookmarkColor === 'white' ? BookmarkWhite : BookmarkRed} alt='bookmark' />
           </Button>
         </div>
-        <img src={'./logo.svg'} className={styles.sidebar__avatar} alt='avatar' />
+        {email ? (
+          <img src={avatar || '/logo.svg'} className={styles.sidebar__avatar} alt='avatar' />
+        ) : (
+          <Button version='gray-light' square={true} size='md' onClick={goToAuth}>
+            <img src={Exit} alt='exit' />
+          </Button>
+        )}
       </div>
     </div>
   );
