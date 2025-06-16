@@ -8,7 +8,7 @@ interface SearchPanel {
 }
 
 export const SearchPanel = ({ categories }: SearchPanel) => {
-  const [radius, setRadius] = useState('');
+  const [radius, setRadius] = useState('1');
 
   const handleRadiusChange = (value: string) => {
     if (Number.isInteger(parseInt(value)) || !value) {
