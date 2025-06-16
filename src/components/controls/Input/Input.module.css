@@ -23,16 +23,50 @@
     justify-content: center;
 }
 
-.input {
-
-}
-
-.input--search {
-    color: var(--color-mine-shaft);
-}
-
-.input--number {
+.container__input--number {
     color: var(--color-mine-shaft);
     text-align: center;
     width: 100%;
+}
+
+.container__input {
+    position: relative;
+    background-color: transparent;
+    color: var(--color-mine-shaft);
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.container__input--label {
+    padding: 15px 15px 5px 15px;
+}
+
+.container__input:focus {
+    outline: none;
+}
+
+.container__input::placeholder {
+    color: transparent;
+}
+
+.container__input:focus + .container__label,
+.container__input:not(:placeholder-shown) + .container__label {
+    top: 5px;
+    left: 15px;
+    font-size: 10px;
+    color: var(--color-mine-shaft);
+}
+
+.container__label {
+    position: absolute;
+    left: 15px;
+    top: 16px;
+    color: var(--color-mine-shaft);
+    font-size: 12px;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
