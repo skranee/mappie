@@ -67,6 +67,10 @@
     left: calc(-1 * var(--panel-width));
 }
 
+.panel__closeBtn--expanded {
+    left: calc(var(--panel-landmark-width) + var(--sidebar-width));
+}
+
 .panel__closeBtn:hover {
     cursor: pointer;
     opacity: 0.95;
