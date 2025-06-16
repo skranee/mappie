@@ -111,7 +111,11 @@ export const Panel = () => {
         </ul>
       )}
       <button
-        className={`${styles.panel__closeBtn} ${!isOpen && styles['panel__closeBtn--hidden']}`}
+        className={`
+          ${styles.panel__closeBtn} 
+          ${!isOpen && styles['panel__closeBtn--hidden']} 
+          ${mode === 'landmark' && isOpen && styles['panel__closeBtn--expanded']}
+        `}
         onClick={closePanel}
       >
         <img src={ArrowLeft} alt='close-arrow-left' />
