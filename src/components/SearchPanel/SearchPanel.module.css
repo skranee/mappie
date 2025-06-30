@@ -1,5 +1,6 @@
 .searchPanel {
     position: relative;
+    width: 100%;
 }
 
 .searchPanel__categoriesContainer {
@@ -8,7 +9,7 @@
     border-radius: 10px;
     width: 100%;
     height: 470px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .searchPanel__categories {
@@ -20,6 +21,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
+    width: 100%;
     height: 100%;
 }
 
@@ -45,6 +47,12 @@
     font-weight: var(--font-weight-bold);
     font-size: 14px;
     color: var(--color-mine-shaft);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.searchPanel__category--chosen {
+    opacity: 0.5;
 }
 
 .searchPanel__categoryIcon {
@@ -54,7 +62,7 @@
 
 .searchPanel__inputTitle {
     color: var(--color-mine-shaft);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .searchPanel__inputContainer {
@@ -64,4 +72,5 @@
     gap: 20px;
     color: var(--color-mine-shaft);
     font-weight: var(--font-weight-extra-bold);
+    margin-bottom: 15px;
 }
