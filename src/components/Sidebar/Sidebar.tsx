@@ -1,22 +1,22 @@
-import styles from './Sidebar.module.css';
-import { Button } from '@/components/controls/Button/Button.tsx';
-import LensWhite from '@/assets/icons/lens-white.svg';
-import LensBlue from '@/assets/icons/lens-blue.svg';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import BookmarkRed from '@/assets/icons/bookmark-red.svg';
 import BookmarkWhite from '@/assets/icons/bookmark-white.svg';
+import Exit from '@/assets/icons/exit.svg';
+import LensBlue from '@/assets/icons/lens-blue.svg';
+import LensWhite from '@/assets/icons/lens-white.svg';
+import { Button } from '@/components/controls/Button/Button.tsx';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { useAppSelector } from '@/hooks/useAppSelector.ts';
 import { setIsOpen, setMode } from '@/store/slices/PanelSlice.ts';
-import { useEffect, useState } from 'react';
 import type { ButtonColors } from '@/types/controls.ts';
-import { useNavigate } from 'react-router-dom';
-import Exit from '@/assets/icons/exit.svg';
+
+import styles from './Sidebar.module.css';
 
 export const Sidebar = () => {
-  const mode = useAppSelector(state => state.panel.mode);
-  const isOpen = useAppSelector(state => state.panel.isOpen);
-  const email = useAppSelector(state => state.user.email);
-  const avatar = useAppSelector(state => state.user.avatar);
+  const { mode, isOpen } = useAppSelector(state => state.panel);
+  const { email, avatar } = useAppSelector(state => state.user);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

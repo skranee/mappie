@@ -1,0 +1,57 @@
+.route-details {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 10000;
+}
+
+.routeDetails__progress {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+}
+
+.routeDetails__progress::-webkit-progress-bar {
+    width: 100%;
+    border-radius: 30px;
+    height: 6px;
+    background: var(--color-gray-lighter);
+}
+
+.routeDetails__progress::-webkit-progress-value {
+    background: var(--color-red);
+    border-radius: 30px;
+}
+
+.routeDetails__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 8px;
+}
+
+.routeDetails__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.routeDetails__metrics {
+    color: var(--color-dark-blue);
+    font-weight: var(--font-weight-extra-bold);
+}
+
+.routeDetails__text {
+    color: var(--color-dark-blue);
+    opacity: 0.5;
+}

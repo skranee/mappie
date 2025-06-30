@@ -1,7 +1,7 @@
-import { Map } from '@/pages/Map.tsx';
-import { Auth } from '@/pages/Auth.tsx';
+import { Auth } from '@/pages/Auth';
+import { Main } from '@/pages/Main';
 
 export const ROUTES = [
-  { path: '/', page: <Map /> },
-  { path: '/auth', page: <Auth /> },
+  { path: '/', page: <Main />, private: true },
+  { path: '/auth', page: <Auth />, private: false },
 ];

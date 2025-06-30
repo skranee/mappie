@@ -17,6 +17,12 @@
 
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    @media (max-width: 700px) {
+        max-width: calc(100% - var(--sidebar-width) - 45px);
+        padding-right: 5px;
+        font-size: 12px;
+    }
 }
 
 .panel--closed {
@@ -35,6 +41,10 @@
     border-radius: 0 10px 10px 0;
     background: var(--color-white);
     transition: 0.2s;
+
+    @media (max-width: 700px) {
+        left: calc(100% - 45px);
+    }
 }
 
 .panel__closeBtn::before {

@@ -1,0 +1,23 @@
+.map {
+    position: absolute;
+    top: 0;
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: 100%;
+    transition: 0.2s;
+    z-index: 0;
+}
+
+.map--squeezed {
+    left: calc(var(--sidebar-width) + var(--panel-width));
+    width: calc(100% - var(--sidebar-width) - var(--panel-width));
+}
+
+.map--extra-squeezed {
+    left: calc(var(--sidebar-width) + var(--panel-landmark-width));
+    width: calc(100% - var(--sidebar-width) - var(--panel-landmark-width));
+}
+
+.leaflet-container {
+    height: 100%;
+}

@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { PanelMode, PanelSlice } from '@/types/store/panel.ts';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: PanelSlice = {
   isOpen: false,

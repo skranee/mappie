@@ -70,3 +70,11 @@
     pointer-events: none;
     transition: all 0.3s ease;
 }
+
+.container__error {
+    position: absolute;
+    bottom: -25px;
+    left: 5px;
+    color: var(--color-red);
+    font-weight: var(--font-weight-regular);
+}
