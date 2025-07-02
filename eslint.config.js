@@ -5,9 +5,12 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import prettierConfig from 'eslint-config-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginImport from 'eslint-plugin-import';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  {
+    ignores: ['dist'],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended, prettierConfig],
     files: ['**/*.{ts,tsx}'],
@@ -50,16 +53,17 @@ export default tseslint.config(
           extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
       },
-      react: {
-        version: 'detect',
-      },
+      react: { version: 'detect' },
     },
   },
+
   {
     files: ['**/*.test.{ts,tsx}'],
-    env: {
-      jest: true,
-    },
+
+    languageOptions: { globals: globals.jest },
+
+    plugins: { import: eslintPluginImport },
+
     rules: {
       'no-console': 'off',
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],

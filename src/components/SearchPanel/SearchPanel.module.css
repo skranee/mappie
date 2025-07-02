@@ -15,6 +15,7 @@
 .searchPanel__categories {
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     padding-right: 5px;
     flex-direction: column;
@@ -49,6 +50,10 @@
     color: var(--color-mine-shaft);
     cursor: pointer;
     transition: 0.25s;
+
+    @media (max-width: 600px) {
+        font-size: 9px;
+    }
 }
 
 .searchPanel__category--chosen {

@@ -22,8 +22,6 @@ export const Routing = () => {
   useEffect(() => {
     if (!map || !from || !to) return;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const routingControl = L.Routing.control({
       waypoints: [L.latLng(from), L.latLng(to)],
       routeWhileDragging: true,

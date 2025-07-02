@@ -16,6 +16,10 @@
     border-radius: 10px;
     object-fit: cover;
     margin-bottom: 20px;
+
+    @media (max-width: 600px) {
+        height: 200px;
+    }
 }
 
 .details__badges {
@@ -27,6 +31,10 @@
     font-weight: var(--font-weight-extra-bold);
     color: var(--color-mine-shaft);
     margin-bottom: 15px;
+
+    @media (max-width: 600px) {
+        font-size: 18px;
+    }
 }
 
 .details__description {
@@ -39,4 +47,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

@@ -27,7 +27,7 @@
     --color-mine-shaft: #373737;
     --color-red: #C75E5E;
 
-    --width-mobile: 700px;
+    --width-mobile: 600px;
 
     --message-tail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 64'%3E%3Cpath fill='white' d='M73.8 20A60 60 0 0 1 24.6 74c-3.4.6-4.9 3.6-3 6.5A2.9 2.9 0 0 0 24 82h46.8c3.3 0 6-3.8 6-8.5L77 20v-.1C77 17.3 74 17.2 73.8 20z' transform='translate(-20.8 -18)'/%3E%3C/svg%3E");
 }
