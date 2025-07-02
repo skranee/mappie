@@ -6,6 +6,8 @@ import Mark from '@/assets/icons/mark.svg';
 import { Button } from '@/components/controls/Button/Button.tsx';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { useAppSelector } from '@/hooks/useAppSelector.ts';
+import { removeFavorite } from '@/store/slices/FavoritesSlice.ts';
+import { setMode } from '@/store/slices/PanelSlice.ts';
 import { setDistance, setDuration, setFrom, setTo } from '@/store/slices/RouteSlice.ts';
 import type { Landmark } from '@/types/landmark.ts';
 
@@ -33,6 +35,12 @@ export const Details = ({ landmark }: Details) => {
     dispatch(setDuration(routeInfo.duration));
   };
 
+  const removeFromSaved = () => {
+    dispatch(removeFavorite(landmark));
+
+    dispatch(setMode('saved'));
+  };
+
   return (
     <div className={styles.details}>
       <img src={landmark.img} className={styles.details__image} alt='image' />
@@ -40,7 +48,7 @@ export const Details = ({ landmark }: Details) => {
       <span className={styles.details__title}>{landmark.name}</span>
       <span className={styles.details__description}>{landmark.description}</span>
       <div className={styles.details__buttons}>
-        <Button version='white' square={false} size='sm'>
+        <Button version='white' square={false} size='sm' onClick={removeFromSaved}>
           <img src={BookmarkGray} alt='bookmark-gray' />
           <span>Сохранено</span>
         </Button>

@@ -11,11 +11,21 @@
 .map--squeezed {
     left: calc(var(--sidebar-width) + var(--panel-width));
     width: calc(100% - var(--sidebar-width) - var(--panel-width));
+
+    @media (max-width: 600px) {
+        left: calc(100% - 45px);
+        width: 45px;
+    }
 }
 
 .map--extra-squeezed {
     left: calc(var(--sidebar-width) + var(--panel-landmark-width));
     width: calc(100% - var(--sidebar-width) - var(--panel-landmark-width));
+
+    @media (max-width: 600px) {
+        left: calc(100% - 45px);
+        width: 45px;
+    }
 }
 
 .leaflet-container {

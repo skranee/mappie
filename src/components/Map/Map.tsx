@@ -17,10 +17,13 @@ import type { Landmark } from '@/types/landmark.ts';
 import 'leaflet/dist/leaflet.css';
 import styles from './Map.module.css';
 
-const zoom = 14;
-
 export const Map = () => {
   useLocation();
+
+  const zoom = 14;
+  const attribution =
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  const url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
   const dispatch = useAppDispatch();
 
@@ -54,15 +57,13 @@ export const Map = () => {
       {from && to && <RouteDetails />}
       <MapContainer center={location} zoom={zoom} className={styles.leafletContainer}>
         <MapUpdater />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        />
+        <TileLayer attribution={attribution} url={url} />
         <Marker position={location} icon={USER_MARKER_ICON}>
           <Popup>Ваша локация</Popup>
         </Marker>
         {to && <Marker position={to} icon={ROUTE_TO_ICON} />}
         {saved.length &&
+          isOpen &&
           saved.map((place, index) => (
             <Marker
               key={`place-${index}`}
